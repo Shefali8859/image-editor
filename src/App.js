@@ -9,13 +9,22 @@ function App() {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  console.log("Selected Image:", selectedImage);
+  const handleCloseEditor = () => {
+    setSelectedImage(null); 
+  };
 
   return (
     <div className="App">
-      <SearchBar setImages={setImages}/>
-      <ImageResults images={images} onSelectImage={setSelectedImage}/>
-      {/* {selectedImage && <CanvasEditor imageUrl={selectedImage.urls.full} />} */}
+      <p>Shefali Sharma</p>
+      <p>shefalis078@gmail.com</p>
+      <SearchBar setImages={setImages} />
+      <ImageResults images={images} onSelectImage={setSelectedImage} />
+      {selectedImage && (
+        <CanvasEditor
+          imageUrl={selectedImage.urls.full}
+          onClose={handleCloseEditor}
+        />
+      )}
     </div>
   );
 }
