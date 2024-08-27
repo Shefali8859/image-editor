@@ -1,38 +1,154 @@
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffbe98;
+}
+
 .App {
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* SearchBar Styles */
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #f05a7e;
+  border-radius: 5px;
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input[type="text"]:focus {
+  border-color: #f05a7e;
+}
+
+/* Global Button Styles */
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-color: #f05a7e;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: black; /* White text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover{
+  background-color: #f05a7e;
+}
+
+/* ImageResults Styles */
+.image-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.image-item {
+  position: relative;
+  background-color: #125b9a;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.image-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-item button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+/* CanvasEditor Styles */
+.CanvasEditor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+canvas {
+  width: 100%;
+  height: auto;
+  border: 2px solid #f05a7e;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.CanvasEditor button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #125b9a; /* Blue background */
+  color: white; /* White text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CanvasEditor button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.CanvasEditor .shape-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  form {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  input[type="text"] {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .CanvasEditor button {
+    width: 90%;
+  }
+
+  .CanvasEditor .shape-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .image-results {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
